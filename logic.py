@@ -12,3 +12,4 @@ def get_winner(board):
 
 def other_player(player):
     return '0' # FIXME
+

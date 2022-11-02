@@ -1,18 +1,13 @@
-import unittest
-import logic
-
-class TestLogic(unittest, TestCase):
-
-    def test_get_winner(self):
-        board = [
-            ['X', None, '0'],
-            [None, 'X', None]
-            [None, '0', 'X']
-        ]
-        self.assertEqual(logic.getwinner_(board),'X')
-
-    # TODO: test all functions from logic.py
+from logic import make_empty_board
 
 if __name__ == '__main__':
-    unittest.main()
+    board = make_empty_board()
+    winner = None
+    while winner == None:
+        print("TODO: take a turn!")
+        #TODO: Show the board to the user.
+        #TODO: Input a move from the player.
+        #TODO: Update the a board.
+        #TODO: Update who's turn it is.
+        winner = 'X' # FIXME
     
