@@ -1,7 +1,7 @@
 #This is where game logic lives. No input
 import random
 
-class Board: 
+class Game: 
     def __init__(self):
         self.board = [
             [None, None, None],
@@ -60,14 +60,20 @@ class Board:
             print("X turn!")
             self.print_board()
             x,y = self.get_human_move()
+            if self.board[x][y] != None:
+                continue
             self.board[x][y] = 'x'
+
+
             if self.get_winner('x'):
                 print('cool! player X win')
                 break
 
             print("O turn!")
             self.print_board()                         
-            x,y = self.get_human_move()          
+            x,y = self.get_human_move()
+            if self.board[x][y] != None:
+                continue                      
             self.board[x][y] = 'o'
             if self.get_winner('o'):
                 print('cool! player O wins')
@@ -88,12 +94,16 @@ class Board:
             print("X turn!")
             self.print_board()
             x,y = self.get_human_move()
+            if self.board[x][y] != None:
+                continue    
             self.board[x][y] = 'x'
             if self.get_winner('x'):
                 print('cool! your win')
                 break
             x,y = self.get_computer_move()
-            print("O turn!")            
+            print("O turn!")
+            if self.board[x][y] != None:
+                continue             
             self.board[x][y] = 'o'
             if self.get_winner('o'):
                 print('sorry! computer wins')
