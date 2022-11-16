@@ -1,7 +1,7 @@
-from logic_new import Game
-from logic_new import Board
-from logic_new import Human
-from logic_new import Bot
+from logic_new_new import Game
+from logic_new_new import Board
+from logic_new_new import Human
+from logic_new_new import Bot
 #from logic_new_new import 
 
 if __name__ == '__main__':
