@@ -1,7 +1,7 @@
 #This is where game logic lives. No input
 import random
 
-class Game: 
+class Board: 
     def __init__(self):
         self.board = [
             [None, None, None],
@@ -10,15 +10,24 @@ class Game:
         ]
     def print_board(self):
         for i in range(len(self.board)):
-            print(self.board[i])   
+            print(self.board[i])
+
+    def get_board(self):
+        return self.board
     
-#class Human:  #definite human move
+class Human:  #definite human move
+    def __init__(self):
+        pass
 
     def get_human_move(self):
         while True:
-            move_1 = input("which row (choose 1,2,3)")
-            if int(move_1) == 1 or int(move_1) == 2 or int(move_1) == 3:
-                break
+            try:
+
+                move_1 = input("which row (choose 1,2,3)")
+                if int(move_1) == 1 or int(move_1) == 2 or int(move_1) == 3:
+                    break
+            except:
+                continue
         while True:
             move_2 = input("which colunm (choose 1,2,3)")
             if int(move_2) == 1 or int(move_2) == 2 or int(move_2) == 3:
@@ -26,21 +35,23 @@ class Game:
         #self.board[int(move_x_1) - 1][int(move_x_2) - 1] = 'x'
         return [int(move_1) - 1, int(move_2) - 1]
 
-#class Bot:   #definie robot move    
-
+class Bot:   #definie robot move    
+    def __init__(self):
+        pass    
     def get_computer_move(self):
         move_1 = random.randint(0,2)
         move_2 = random.randint(0,2)
         return [move_1, move_2]   
 
-#class Game:
-    #def __init__(self):
-        #self.board = Board()
-        #self.players = []
-
+class Game:
+    def __init__(self,human,bot,board):
+        self.human = Human()
+        self.bot = Bot()
+        self.board = Board()
 
     def get_winner(self,win_char):
-        board = self.board
+        board = self.board.get_board()
+
         for x in range(3):
             if board[x][0] == board[x][1] == board[x][2] == win_char:  # check rows x
                 return win_char
@@ -58,11 +69,11 @@ class Game:
         number = 0
         while winner == None and number < 9:
             print("X turn!")
-            self.print_board()
-            x,y = self.get_human_move()
-            if self.board[x][y] != None:
+            self.board.print_board()
+            x,y = self.human.get_human_move()
+            if self.board.board[x][y] != None:
                 continue
-            self.board[x][y] = 'x'
+            self.board.board[x][y] = 'x'
 
 
             if self.get_winner('x'):
@@ -70,11 +81,11 @@ class Game:
                 break
 
             print("O turn!")
-            self.print_board()                         
-            x,y = self.get_human_move()
-            if self.board[x][y] != None:
+            self.board.print_board()                         
+            x,y = self.human.get_human_move()
+            if self.board.board[x][y] != None:
                 continue                      
-            self.board[x][y] = 'o'
+            self.board.board[x][y] = 'o'
             if self.get_winner('o'):
                 print('cool! player O wins')
                 break
@@ -86,25 +97,24 @@ class Game:
             if number > 8:
                 print('draw') 
 
-
     def play_human_computer(self):
         winner = None
         number = 0
         while winner == None and number < 9:
             print("X turn!")
-            self.print_board()
-            x,y = self.get_human_move()
-            if self.board[x][y] != None:
+            self.board.print_board()
+            x,y = self.human.get_human_move()
+            if self.board.board[x][y] != None:
                 continue    
-            self.board[x][y] = 'x'
+            self.board.board[x][y] = 'x'
             if self.get_winner('x'):
                 print('cool! your win')
                 break
-            x,y = self.get_computer_move()
+            x,y = self.bot.get_computer_move()
             print("O turn!")
-            if self.board[x][y] != None:
+            if self.board.board[x][y] != None:
                 continue             
-            self.board[x][y] = 'o'
+            self.board.board[x][y] = 'o'
             if self.get_winner('o'):
                 print('sorry! computer wins')
                 break
