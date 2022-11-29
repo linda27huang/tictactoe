@@ -89,11 +89,9 @@ class Game:
             if self.get_winner('o'):
                 print('cool! player O wins')
                 break
-
             number = number + 2
-
-            if winner != None:
-                break  
+            #if winner != None:
+                #break  
             if number > 8:
                 print('draw') 
 
