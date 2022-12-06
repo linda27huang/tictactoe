@@ -81,6 +81,8 @@ class Game:
         self.mytype = "human_human"
         number = 0
         while self.winner == "" and number < 9:
+            #self.winner = "x"
+            #break
             print("X turn!")
             self.print_board()
             x,y = self.get_human_move()
@@ -156,11 +158,12 @@ class Game:
         winner = self.winner
         print(games)
         print(type(games))
-        self.games.loc[len(games)] = {
-                "Game ID": len(games)+1,
-                "Game Type": mytype,
-                "Winner": winner,
-                }
+        # self.games.loc[len(games)] = {
+        #         "Game ID": len(games)+1,
+        #         "Game Type": mytype,
+        #         "Winner": winner,
+        #         }
+        self.games.loc[len(games)] = [len(games)+1, mytype, winner]
         print(games)
         self.games.to_csv("hello.csv")       
             
