@@ -1,4 +1,5 @@
 from logic_1129 import Game
+from diagram_1129 import Diagram
 #from logic_1129 import winner
 #from logic_new_new import Game
 #from logic_new_new import Human
@@ -16,9 +17,11 @@ if __name__ == '__main__':
         
     #game.read_game()
     print(game.winner)
-
-
     game.add_game()
+
+    diagram = Diagram()
+    diagram.bar_graph()
+    diagram.pie_graph()
 
 
 
