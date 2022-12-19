@@ -25,14 +25,24 @@
         </div>
     <form> 
         <div class="important">
+            <label for="playmode" class="gamemode-label">Game mode:</label>
+            <select name="playmode" id="playmode">
+                <option value="humanhuman">human vs human</option>
+                <option value="humanbot">human vs bot</option>
+            </select>
+         </div> 
         <p>
-            <label> Your Name:
+            <label> Player1 Name:
                 <input name="player1"/>
+            </label>
+            <br>
+            <label> Player2 Name (if bot please enter "bot"):
+                <input name="player2"/>
             </label>
         </p>
             <button type="submit">Start</button>
         </div>
-    </form>
+    </form>  
     </div>
 </body>
 </html>
