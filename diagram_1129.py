@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 class Diagram:
-    def bar_graph():
+    def bar_graph(self):
         win_bot = 10
         win_human = 15
         data = [win_bot, win_human]
@@ -13,7 +13,7 @@ class Diagram:
         plt.savefig('win_times')
         plt.show()
 
-    def pie_graph():
+    def pie_graph(self):
         game_times = 25
         win_bot = 10
         win_human = 15
